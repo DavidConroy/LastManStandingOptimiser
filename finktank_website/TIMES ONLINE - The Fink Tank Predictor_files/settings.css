@@ -1,0 +1,73 @@
+.window {
+//  background: #d8e7fe;
+  background: #ccc;
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 457px;
+  padding: 1px;
+  -moz-border-radius: 7px;
+  border: 1px solid #21416d;
+  display: none;
+}
+
+#handle {
+background-image:url(../images/headband.jpg); 
+background-repeat:repeat-x; 
+height:22px;
+margin:0px; 
+padding:4px 0px 0px 8px; 
+font-weight:bold; 
+color:#323232;
+width:460px;
+position: relative;
+top: 0px;
+}
+
+html>body #handle {
+top: 0px;
+width: auto;
+}
+
+.window h1 {
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  position: relative;
+  height: 100%;
+  padding: 6px;
+  display: block;
+  width: 457px;
+//  background-color: #9cc6ff;
+  background-color: #003271;
+  font-size: 13px;
+  margin: 0px;
+}
+
+html>body .window h1 {
+	width: auto;
+}
+
+.slider {
+	float: left;
+	width: 411px;
+	margin-right: 10px;
+}
+
+html>body .slider {
+	margin-bottom: 20px;
+}
+
+.slider .minMark, .slider .maxMark{
+	position: relative;
+	float:left;
+	width: 3px;
+	height: 10px;
+}
+
+.slider .minMark {
+	background-color: #ff0000;
+}
+
+.slider .maxMark {
+	background-color: #0000ff;
+}

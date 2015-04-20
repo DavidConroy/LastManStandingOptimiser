@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TIMES ONLINE - The Fink Tank Predictor</title>
+<link href="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/styles.css" rel="stylesheet" type="text/css"><script language="javascript">	var PHP_getHomeID=-1;
+		var PHP_getAwayID=-1;
+		var PHP_getNeutral=-1;
+		var PHP_getHomeAtk=-1;
+		var PHP_getHomeDef=-1;
+		var PHP_getAwayAtk=-1;
+		var PHP_getAwayDef=-1;
+	</script>
+<script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/MochiKit.js"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Base.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Iter.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Logging.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/DateTime.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Format.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Async.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/DOM.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Selector.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Style.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/LoggingPane.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Color.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Signal.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Position.js" type="text/javascript"></script><script src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/Visual.js" type="text/javascript"></script>
+<script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/overallSimulator.js"></script>
+
+<!-- the scripts for the slider and window tabs -->
+<link href="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/screen.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/DragAndDrop.js"></script>
+<script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/prototype.js"></script>
+<script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/control.js"></script>
+<script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/slider_handler.js"></script>
+
+<script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/range.js"></script>
+<script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/timer.js"></script>
+<script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/slider.js"></script>
+<link type="text/css" rel="StyleSheet" href="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/luna.css">
+<link type="text/css" rel="StyleSheet" href="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/settings.css">
+
+<link href="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/gamesim.css" rel="stylesheet" type="text/css"><!--[if IE]><style type="text/css"> /* place css fixes for all versions of IE in this conditional comment */.twoColHybLtHdr h1{margin-top:12px; font-weight:bold;}.twoColHybLtHdr .h2{font-weight:bold;}.twoColHybLtHdr #sidebar1 { padding: 0px; }.twoColHybLtHdr .sidebox {width:178px;}.twoColHybLtHdr #sidebar1 {margin-left:10px; margin-right:0px;}.twoColHybLtHdr #sidebar2 {margin-left:0px; margin-right:10px;}.twoColHybLtHdr #mainContent {margin: 0 0px 0 212px; }.twoColHybLtHdr #sidebar1 a {margin-bottom:0px;}.scroll {height: 300px;	 width:619px; overflow:auto;}/* the above proprietary zoom property gives IE the hasLayout it may need to avoid several bugs */</style><![endif]--><script language="JavaScript"><!-- Idea by:  Nic Wolfe (Nic@TimelapseProductions.com) --><!-- Web URL:  http://fineline.xs.mw --><!-- This script and many more are available free online at --><!-- The JavaScript Source!! http://javascript.internet.com --><!-- Beginfunction popUp(URL) {day = new Date();id = day.getTime();eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 570,top = 330');");}// End --></script></head><body class="twoColHybLtHdr">    <div id="header">  <a target="_blank" href="http://www.timesonline.co.uk/tol/sport/football/fink_tank/">    <img src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/header.jpg" alt="football prediction header" style="margin:0; padding:0; border-style:none"></a>  <!-- end #header --></div><div id="container">  <div id="sidebar1">    <div class="sidebox">
+<p class="headband">Menu</p>
+<div class="list">
+<a href="http://www.dectech.co.uk/football_sites/football/index.php"><span class="border">Upcoming Games</span></a>
+<a href="http://www.dectech.co.uk/football_sites/football/rankings.php"><span class="border">Team Rankings</span></a>
+<a href="http://www.dectech.co.uk/football_sites/football/seasonend_overall.php"><span class="border">Season End</span></a>
+<a href="http://www.dectech.co.uk/football_sites/football/gamesim.php" style="color:#000000;background-color:#fff108;"><span class="border2">Game Simulator</span></a>
+</div>
+</div>
+
+<div id="help">
+<a href="http://www.dectech.co.uk/football_sites/football/help_gameSim.php" class="helpLink">HELP!</a>
+<a class="helpCompLink" href="http://www.dectech.co.uk/football_sites/football/help_info.php">Info</a>
+<a class="helpCompLink" href="mailto:predictor@dectech.co.uk">Contact</a>
+</div>        <!-- end #sidebar1 -->  </div>   <div id="sidebar2">    <div class="sidebox">
+<p class="headband">Divisions (Home)</p>
+<div class="list">
+<div class="homeCol">
+	<a href="" class="mochi-visList" mochi:listid="0h"><span class="border">Premier League</span></a>
+
+    <ul mochi:listid="0h" class="submenu2h" style="display:none;">
+				<li><a href="" mochi:hometeamname="Arsenal" mochi:hometeamid="0">Arsenal</a></li>
+						<li><a href="" mochi:hometeamname="Aston Villa" mochi:hometeamid="1">Aston Villa</a></li>
+						<li><a href="" mochi:hometeamname="Burnley" mochi:hometeamid="22">Burnley</a></li>
+						<li><a href="" mochi:hometeamname="Chelsea" mochi:hometeamid="6">Chelsea</a></li>
+						<li><a href="" mochi:hometeamname="Crystal Palace" mochi:hometeamid="24">Crystal Palace</a></li>
+						<li><a href="" mochi:hometeamname="Everton" mochi:hometeamid="7">Everton</a></li>
+						<li><a href="" mochi:hometeamname="Hull" mochi:hometeamid="77">Hull</a></li>
+						<li><a href="" mochi:hometeamname="Leicester" mochi:hometeamid="29">Leicester</a></li>
+						<li><a href="" mochi:hometeamname="Liverpool" mochi:hometeamid="10">Liverpool</a></li>
+						<li><a href="" mochi:hometeamname="Man City" mochi:hometeamid="11">Man City</a></li>
+						<li><a href="" mochi:hometeamname="Man United" mochi:hometeamid="12">Man United</a></li>
+						<li><a href="" mochi:hometeamname="Newcastle" mochi:hometeamid="14">Newcastle</a></li>
+						<li><a href="" mochi:hometeamname="QPR" mochi:hometeamid="62">QPR</a></li>
+						<li><a href="" mochi:hometeamname="Southampton" mochi:hometeamid="15">Southampton</a></li>
+						<li><a href="" mochi:hometeamname="Stoke" mochi:hometeamid="39">Stoke</a></li>
+						<li><a href="" mochi:hometeamname="Sunderland" mochi:hometeamid="16">Sunderland</a></li>
+						<li><a href="" mochi:hometeamname="Swansea" mochi:hometeamid="88">Swansea</a></li>
+						<li><a href="" mochi:hometeamname="Tottenham" mochi:hometeamid="17">Tottenham</a></li>
+						<li><a href="" mochi:hometeamname="West Brom" mochi:hometeamid="18">West Brom</a></li>
+						<li><a href="" mochi:hometeamname="West Ham" mochi:hometeamid="19">West Ham</a></li>
+				</ul>
+		<a href="" class="mochi-visList" mochi:listid="12h"><span class="border">English Championship</span></a>
+
+    <ul mochi:listid="12h" class="submenu2h" style="display:none;">
+				<li><a href="" mochi:hometeamname="Birmingham" mochi:hometeamid="2">Birmingham</a></li>
+						<li><a href="" mochi:hometeamname="Blackburn" mochi:hometeamid="3">Blackburn</a></li>
+						<li><a href="" mochi:hometeamname="Blackpool" mochi:hometeamid="45">Blackpool</a></li>
+						<li><a href="" mochi:hometeamname="Bolton" mochi:hometeamid="4">Bolton</a></li>
+						<li><a href="" mochi:hometeamname="Bournemouth" mochi:hometeamid="69">Bournemouth</a></li>
+						<li><a href="" mochi:hometeamname="Brentford" mochi:hometeamid="46">Brentford</a></li>
+						<li><a href="" mochi:hometeamname="Brighton" mochi:hometeamid="21">Brighton</a></li>
+						<li><a href="" mochi:hometeamname="Cardiff" mochi:hometeamid="48">Cardiff</a></li>
+						<li><a href="" mochi:hometeamname="Charlton" mochi:hometeamid="5">Charlton</a></li>
+						<li><a href="" mochi:hometeamname="Derby" mochi:hometeamid="25">Derby</a></li>
+						<li><a href="" mochi:hometeamname="Fulham" mochi:hometeamid="8">Fulham</a></li>
+						<li><a href="" mochi:hometeamname="Huddersfield" mochi:hometeamid="53">Huddersfield</a></li>
+						<li><a href="" mochi:hometeamname="Ipswich" mochi:hometeamid="28">Ipswich</a></li>
+						<li><a href="" mochi:hometeamname="Leeds" mochi:hometeamid="9">Leeds</a></li>
+						<li><a href="" mochi:hometeamname="Middlesboro" mochi:hometeamid="13">Middlesboro</a></li>
+						<li><a href="" mochi:hometeamname="Millwall" mochi:hometeamid="30">Millwall</a></li>
+						<li><a href="" mochi:hometeamname="Norwich" mochi:hometeamid="31">Norwich</a></li>
+						<li><a href="" mochi:hometeamname="Nott'm Forest" mochi:hometeamid="32">Nott'm Forest</a></li>
+						<li><a href="" mochi:hometeamname="Reading" mochi:hometeamid="35">Reading</a></li>
+						<li><a href="" mochi:hometeamname="Rotherham" mochi:hometeamid="36">Rotherham</a></li>
+						<li><a href="" mochi:hometeamname="Sheffield Weds" mochi:hometeamid="38">Sheffield Weds</a></li>
+						<li><a href="" mochi:hometeamname="Watford" mochi:hometeamid="41">Watford</a></li>
+						<li><a href="" mochi:hometeamname="Wigan" mochi:hometeamid="66">Wigan</a></li>
+						<li><a href="" mochi:hometeamname="Wolves" mochi:hometeamid="43">Wolves</a></li>
+				</ul>
+		<a href="" class="mochi-visList" mochi:listid="13h"><span class="border">English League 1</span></a>
+
+    <ul mochi:listid="13h" class="submenu2h" style="display:none;">
+				<li><a href="" mochi:hometeamname="Barnsley" mochi:hometeamid="44">Barnsley</a></li>
+						<li><a href="" mochi:hometeamname="Bradford" mochi:hometeamid="20">Bradford</a></li>
+						<li><a href="" mochi:hometeamname="Bristol City" mochi:hometeamid="47">Bristol City</a></li>
+						<li><a href="" mochi:hometeamname="Chesterfield" mochi:hometeamid="50">Chesterfield</a></li>
+						<li><a href="" mochi:hometeamname="Colchester" mochi:hometeamid="51">Colchester</a></li>
+						<li><a href="" mochi:hometeamname="Coventry" mochi:hometeamid="23">Coventry</a></li>
+						<li><a href="" mochi:hometeamname="Crawley Town" mochi:hometeamid="2004">Crawley Town</a></li>
+						<li><a href="" mochi:hometeamname="Crewe" mochi:hometeamid="52">Crewe</a></li>
+						<li><a href="" mochi:hometeamname="Doncaster" mochi:hometeamid="95">Doncaster</a></li>
+						<li><a href="" mochi:hometeamname="Fleetwood Town" mochi:hometeamid="2033">Fleetwood Town</a></li>
+						<li><a href="" mochi:hometeamname="Gillingham" mochi:hometeamid="26">Gillingham</a></li>
+						<li><a href="" mochi:hometeamname="Leyton Orient" mochi:hometeamid="79">Leyton Orient</a></li>
+						<li><a href="" mochi:hometeamname="Milton Keynes" mochi:hometeamid="42">Milton Keynes</a></li>
+						<li><a href="" mochi:hometeamname="Notts County" mochi:hometeamid="57">Notts County</a></li>
+						<li><a href="" mochi:hometeamname="Oldham" mochi:hometeamid="58">Oldham</a></li>
+						<li><a href="" mochi:hometeamname="Peterboro" mochi:hometeamid="59">Peterboro</a></li>
+						<li><a href="" mochi:hometeamname="Port Vale" mochi:hometeamid="61">Port Vale</a></li>
+						<li><a href="" mochi:hometeamname="Preston" mochi:hometeamid="34">Preston</a></li>
+						<li><a href="" mochi:hometeamname="Rochdale" mochi:hometeamid="83">Rochdale</a></li>
+						<li><a href="" mochi:hometeamname="Scunthorpe" mochi:hometeamid="85">Scunthorpe</a></li>
+						<li><a href="" mochi:hometeamname="Sheffield United" mochi:hometeamid="37">Sheffield United</a></li>
+						<li><a href="" mochi:hometeamname="Swindon" mochi:hometeamid="64">Swindon</a></li>
+						<li><a href="" mochi:hometeamname="Walsall" mochi:hometeamid="40">Walsall</a></li>
+						<li><a href="" mochi:hometeamname="Yeovil" mochi:hometeamid="96">Yeovil</a></li>
+				</ul>
+		<a href="" class="mochi-visList" mochi:listid="14h"><span class="border">English League 2</span></a>
+
+    <ul mochi:listid="14h" class="submenu2h" style="display:none;">
+				<li><a href="" mochi:hometeamname="AFC Wimbledon" mochi:hometeamid="2029">AFC Wimbledon</a></li>
+						<li><a href="" mochi:hometeamname="Accrington" mochi:hometeamid="97">Accrington</a></li>
+						<li><a href="" mochi:hometeamname="Burton" mochi:hometeamid="2002">Burton</a></li>
+						<li><a href="" mochi:hometeamname="Bury" mochi:hometeamid="71">Bury</a></li>
+						<li><a href="" mochi:hometeamname="Cambridge" mochi:hometeamid="72">Cambridge</a></li>
+						<li><a href="" mochi:hometeamname="Carlisle" mochi:hometeamid="73">Carlisle</a></li>
+						<li><a href="" mochi:hometeamname="Cheltenham" mochi:hometeamid="49">Cheltenham</a></li>
+						<li><a href="" mochi:hometeamname="Dag and Red" mochi:hometeamid="2005">Dag and Red</a></li>
+						<li><a href="" mochi:hometeamname="Exeter" mochi:hometeamid="75">Exeter</a></li>
+						<li><a href="" mochi:hometeamname="Hartlepool" mochi:hometeamid="76">Hartlepool</a></li>
+						<li><a href="" mochi:hometeamname="Luton" mochi:hometeamid="54">Luton</a></li>
+						<li><a href="" mochi:hometeamname="Mansfield" mochi:hometeamid="55">Mansfield</a></li>
+						<li><a href="" mochi:hometeamname="Morecambe" mochi:hometeamid="2009">Morecambe</a></li>
+						<li><a href="" mochi:hometeamname="Newport County" mochi:hometeamid="2034">Newport County</a></li>
+						<li><a href="" mochi:hometeamname="Northampton" mochi:hometeamid="56">Northampton</a></li>
+						<li><a href="" mochi:hometeamname="Oxford" mochi:hometeamid="82">Oxford</a></li>
+						<li><a href="" mochi:hometeamname="Plymouth" mochi:hometeamid="60">Plymouth</a></li>
+						<li><a href="" mochi:hometeamname="Portsmouth" mochi:hometeamid="33">Portsmouth</a></li>
+						<li><a href="" mochi:hometeamname="Shrewsbury" mochi:hometeamid="86">Shrewsbury</a></li>
+						<li><a href="" mochi:hometeamname="Southend" mochi:hometeamid="87">Southend</a></li>
+						<li><a href="" mochi:hometeamname="Stevenage" mochi:hometeamid="2015">Stevenage</a></li>
+						<li><a href="" mochi:hometeamname="Tranmere" mochi:hometeamid="65">Tranmere</a></li>
+						<li><a href="" mochi:hometeamname="Wycombe" mochi:hometeamid="67">Wycombe</a></li>
+						<li><a href="" mochi:hometeamname="York" mochi:hometeamid="91">York</a></li>
+				</ul>
+	</div>
+</div>
+</div>
+
+<div class="sidebox">
+<p class="headband">Divisions (Away)</p>
+
+<div class="list">
+<div class="awayCol">
+
+	<a href="" class="mochi-visList" mochi:listid="0a"><span class="border">Premier League</span></a>
+   	<ul class="submenu2" style="display:none;" mochi:listid="0a">
+
+				<li><a href="" mochi:awayteamname="Arsenal" mochi:awayteamid="0">Arsenal</a></li>
+						<li><a href="" mochi:awayteamname="Aston Villa" mochi:awayteamid="1">Aston Villa</a></li>
+						<li><a href="" mochi:awayteamname="Burnley" mochi:awayteamid="22">Burnley</a></li>
+						<li><a href="" mochi:awayteamname="Chelsea" mochi:awayteamid="6">Chelsea</a></li>
+						<li><a href="" mochi:awayteamname="Crystal Palace" mochi:awayteamid="24">Crystal Palace</a></li>
+						<li><a href="" mochi:awayteamname="Everton" mochi:awayteamid="7">Everton</a></li>
+						<li><a href="" mochi:awayteamname="Hull" mochi:awayteamid="77">Hull</a></li>
+						<li><a href="" mochi:awayteamname="Leicester" mochi:awayteamid="29">Leicester</a></li>
+						<li><a href="" mochi:awayteamname="Liverpool" mochi:awayteamid="10">Liverpool</a></li>
+						<li><a href="" mochi:awayteamname="Man City" mochi:awayteamid="11">Man City</a></li>
+						<li><a href="" mochi:awayteamname="Man United" mochi:awayteamid="12">Man United</a></li>
+						<li><a href="" mochi:awayteamname="Newcastle" mochi:awayteamid="14">Newcastle</a></li>
+						<li><a href="" mochi:awayteamname="QPR" mochi:awayteamid="62">QPR</a></li>
+						<li><a href="" mochi:awayteamname="Southampton" mochi:awayteamid="15">Southampton</a></li>
+						<li><a href="" mochi:awayteamname="Stoke" mochi:awayteamid="39">Stoke</a></li>
+						<li><a href="" mochi:awayteamname="Sunderland" mochi:awayteamid="16">Sunderland</a></li>
+						<li><a href="" mochi:awayteamname="Swansea" mochi:awayteamid="88">Swansea</a></li>
+						<li><a href="" mochi:awayteamname="Tottenham" mochi:awayteamid="17">Tottenham</a></li>
+						<li><a href="" mochi:awayteamname="West Brom" mochi:awayteamid="18">West Brom</a></li>
+						<li><a href="" mochi:awayteamname="West Ham" mochi:awayteamid="19">West Ham</a></li>
+				</ul>
+		<a href="" class="mochi-visList" mochi:listid="12a"><span class="border">English Championship</span></a>
+   	<ul class="submenu2" style="display:none;" mochi:listid="12a">
+
+				<li><a href="" mochi:awayteamname="Birmingham" mochi:awayteamid="2">Birmingham</a></li>
+						<li><a href="" mochi:awayteamname="Blackburn" mochi:awayteamid="3">Blackburn</a></li>
+						<li><a href="" mochi:awayteamname="Blackpool" mochi:awayteamid="45">Blackpool</a></li>
+						<li><a href="" mochi:awayteamname="Bolton" mochi:awayteamid="4">Bolton</a></li>
+						<li><a href="" mochi:awayteamname="Bournemouth" mochi:awayteamid="69">Bournemouth</a></li>
+						<li><a href="" mochi:awayteamname="Brentford" mochi:awayteamid="46">Brentford</a></li>
+						<li><a href="" mochi:awayteamname="Brighton" mochi:awayteamid="21">Brighton</a></li>
+						<li><a href="" mochi:awayteamname="Cardiff" mochi:awayteamid="48">Cardiff</a></li>
+						<li><a href="" mochi:awayteamname="Charlton" mochi:awayteamid="5">Charlton</a></li>
+						<li><a href="" mochi:awayteamname="Derby" mochi:awayteamid="25">Derby</a></li>
+						<li><a href="" mochi:awayteamname="Fulham" mochi:awayteamid="8">Fulham</a></li>
+						<li><a href="" mochi:awayteamname="Huddersfield" mochi:awayteamid="53">Huddersfield</a></li>
+						<li><a href="" mochi:awayteamname="Ipswich" mochi:awayteamid="28">Ipswich</a></li>
+						<li><a href="" mochi:awayteamname="Leeds" mochi:awayteamid="9">Leeds</a></li>
+						<li><a href="" mochi:awayteamname="Middlesboro" mochi:awayteamid="13">Middlesboro</a></li>
+						<li><a href="" mochi:awayteamname="Millwall" mochi:awayteamid="30">Millwall</a></li>
+						<li><a href="" mochi:awayteamname="Norwich" mochi:awayteamid="31">Norwich</a></li>
+						<li><a href="" mochi:awayteamname="Nott'm Forest" mochi:awayteamid="32">Nott'm Forest</a></li>
+						<li><a href="" mochi:awayteamname="Reading" mochi:awayteamid="35">Reading</a></li>
+						<li><a href="" mochi:awayteamname="Rotherham" mochi:awayteamid="36">Rotherham</a></li>
+						<li><a href="" mochi:awayteamname="Sheffield Weds" mochi:awayteamid="38">Sheffield Weds</a></li>
+						<li><a href="" mochi:awayteamname="Watford" mochi:awayteamid="41">Watford</a></li>
+						<li><a href="" mochi:awayteamname="Wigan" mochi:awayteamid="66">Wigan</a></li>
+						<li><a href="" mochi:awayteamname="Wolves" mochi:awayteamid="43">Wolves</a></li>
+				</ul>
+		<a href="" class="mochi-visList" mochi:listid="13a"><span class="border">English League 1</span></a>
+   	<ul class="submenu2" style="display:none;" mochi:listid="13a">
+
+				<li><a href="" mochi:awayteamname="Barnsley" mochi:awayteamid="44">Barnsley</a></li>
+						<li><a href="" mochi:awayteamname="Bradford" mochi:awayteamid="20">Bradford</a></li>
+						<li><a href="" mochi:awayteamname="Bristol City" mochi:awayteamid="47">Bristol City</a></li>
+						<li><a href="" mochi:awayteamname="Chesterfield" mochi:awayteamid="50">Chesterfield</a></li>
+						<li><a href="" mochi:awayteamname="Colchester" mochi:awayteamid="51">Colchester</a></li>
+						<li><a href="" mochi:awayteamname="Coventry" mochi:awayteamid="23">Coventry</a></li>
+						<li><a href="" mochi:awayteamname="Crawley Town" mochi:awayteamid="2004">Crawley Town</a></li>
+						<li><a href="" mochi:awayteamname="Crewe" mochi:awayteamid="52">Crewe</a></li>
+						<li><a href="" mochi:awayteamname="Doncaster" mochi:awayteamid="95">Doncaster</a></li>
+						<li><a href="" mochi:awayteamname="Fleetwood Town" mochi:awayteamid="2033">Fleetwood Town</a></li>
+						<li><a href="" mochi:awayteamname="Gillingham" mochi:awayteamid="26">Gillingham</a></li>
+						<li><a href="" mochi:awayteamname="Leyton Orient" mochi:awayteamid="79">Leyton Orient</a></li>
+						<li><a href="" mochi:awayteamname="Milton Keynes" mochi:awayteamid="42">Milton Keynes</a></li>
+						<li><a href="" mochi:awayteamname="Notts County" mochi:awayteamid="57">Notts County</a></li>
+						<li><a href="" mochi:awayteamname="Oldham" mochi:awayteamid="58">Oldham</a></li>
+						<li><a href="" mochi:awayteamname="Peterboro" mochi:awayteamid="59">Peterboro</a></li>
+						<li><a href="" mochi:awayteamname="Port Vale" mochi:awayteamid="61">Port Vale</a></li>
+						<li><a href="" mochi:awayteamname="Preston" mochi:awayteamid="34">Preston</a></li>
+						<li><a href="" mochi:awayteamname="Rochdale" mochi:awayteamid="83">Rochdale</a></li>
+						<li><a href="" mochi:awayteamname="Scunthorpe" mochi:awayteamid="85">Scunthorpe</a></li>
+						<li><a href="" mochi:awayteamname="Sheffield United" mochi:awayteamid="37">Sheffield United</a></li>
+						<li><a href="" mochi:awayteamname="Swindon" mochi:awayteamid="64">Swindon</a></li>
+						<li><a href="" mochi:awayteamname="Walsall" mochi:awayteamid="40">Walsall</a></li>
+						<li><a href="" mochi:awayteamname="Yeovil" mochi:awayteamid="96">Yeovil</a></li>
+				</ul>
+		<a href="" class="mochi-visList" mochi:listid="14a"><span class="border">English League 2</span></a>
+   	<ul class="submenu2" style="display:none;" mochi:listid="14a">
+
+				<li><a href="" mochi:awayteamname="AFC Wimbledon" mochi:awayteamid="2029">AFC Wimbledon</a></li>
+						<li><a href="" mochi:awayteamname="Accrington" mochi:awayteamid="97">Accrington</a></li>
+						<li><a href="" mochi:awayteamname="Burton" mochi:awayteamid="2002">Burton</a></li>
+						<li><a href="" mochi:awayteamname="Bury" mochi:awayteamid="71">Bury</a></li>
+						<li><a href="" mochi:awayteamname="Cambridge" mochi:awayteamid="72">Cambridge</a></li>
+						<li><a href="" mochi:awayteamname="Carlisle" mochi:awayteamid="73">Carlisle</a></li>
+						<li><a href="" mochi:awayteamname="Cheltenham" mochi:awayteamid="49">Cheltenham</a></li>
+						<li><a href="" mochi:awayteamname="Dag and Red" mochi:awayteamid="2005">Dag and Red</a></li>
+						<li><a href="" mochi:awayteamname="Exeter" mochi:awayteamid="75">Exeter</a></li>
+						<li><a href="" mochi:awayteamname="Hartlepool" mochi:awayteamid="76">Hartlepool</a></li>
+						<li><a href="" mochi:awayteamname="Luton" mochi:awayteamid="54">Luton</a></li>
+						<li><a href="" mochi:awayteamname="Mansfield" mochi:awayteamid="55">Mansfield</a></li>
+						<li><a href="" mochi:awayteamname="Morecambe" mochi:awayteamid="2009">Morecambe</a></li>
+						<li><a href="" mochi:awayteamname="Newport County" mochi:awayteamid="2034">Newport County</a></li>
+						<li><a href="" mochi:awayteamname="Northampton" mochi:awayteamid="56">Northampton</a></li>
+						<li><a href="" mochi:awayteamname="Oxford" mochi:awayteamid="82">Oxford</a></li>
+						<li><a href="" mochi:awayteamname="Plymouth" mochi:awayteamid="60">Plymouth</a></li>
+						<li><a href="" mochi:awayteamname="Portsmouth" mochi:awayteamid="33">Portsmouth</a></li>
+						<li><a href="" mochi:awayteamname="Shrewsbury" mochi:awayteamid="86">Shrewsbury</a></li>
+						<li><a href="" mochi:awayteamname="Southend" mochi:awayteamid="87">Southend</a></li>
+						<li><a href="" mochi:awayteamname="Stevenage" mochi:awayteamid="2015">Stevenage</a></li>
+						<li><a href="" mochi:awayteamname="Tranmere" mochi:awayteamid="65">Tranmere</a></li>
+						<li><a href="" mochi:awayteamname="Wycombe" mochi:awayteamid="67">Wycombe</a></li>
+						<li><a href="" mochi:awayteamname="York" mochi:awayteamid="91">York</a></li>
+				</ul>
+	</div>
+</div>
+</div>        <!-- end #sidebar1 -->  </div>  <div id="mainContent">  <h1 style="text-align:center;">Game Simulator</h1>
+
+
+  <div id="tableall1">
+
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td colspan="4" height="40px" valign="top">
+    	<p class="bold">
+    		<span class="homeTeamName">Select Home Team</span>&nbsp;
+    		<span id="vs">-</span>&nbsp;
+    		<span class="awayTeamName">Select Away Team</span>
+    	</p>
+    </td>
+  </tr>
+
+<tr height="40px">
+    <td colspan="2" width="200px"><form action="" method="post" enctype="multipart/form-data"> <input class="mochi-neutralVenueCntl" name="neutral" type="checkbox"><span class="desel_bold2">Neutral Venue</span></form></td>
+    <td width="88px"><div class="link1"><a href="http://www.dectech.co.uk/football_sites/football/gamesim.php?hid=-1&amp;aid=-1&amp;neu=0" mochi:link="gamesim.php" class="changeResultPageBtn" style="color:#279ed8;">Overall</a></div></td>
+    <td width="88px"><div class="link1"><a href="http://www.dectech.co.uk/football_sites/football/asian.php?hid=-1&amp;aid=-1&amp;neu=0" mochi:link="asian.php" class="changeResultPageBtn">Asian</a></div></td>
+  </tr>
+
+  </tbody></table>
+
+  </div>
+
+  <div class="mochi-template" id="tableall2">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td colspan="4">&nbsp;</td>
+
+  </tr>
+  <tr style="display: none;" class="mochi-hide" mochi:repeat="item outcomes 5">
+    <td width="70px"><p class="score"><span mochi:content="item.score"></span>&nbsp;&nbsp;</p></td>
+    <td colspan="3" class="border"><p></p><div class="level" mochi:size="item.chance"></div><span class="score2" mochi:content="item.pr"></span><p></p></td>
+  </tr>
+  
+  
+  
+  
+  <tr>
+    <td colspan="4">&nbsp;</td>
+
+  </tr>
+  <tr>
+    <td valign="top"><p class="score3">Chances:</p></td>
+    <td valign="top">
+    	<p class="score3">Home win</p>
+	    <p class="score4" mochi:formattedcontent="chances.homewin" mochi:format="#.#%">-</p></td>
+    <td valign="top">
+    	<p class="score3">Away Win</p>
+	    <p class="score4" mochi:formattedcontent="chances.awaywin" mochi:format="#.#%">-</p></td>
+    <td valign="top">
+    	<p class="score3">Draw</p>
+	    <p class="score4" mochi:formattedcontent="chances.draw" mochi:format="#.#%">-</p></td>
+  </tr>
+	<tr>
+	  <td colspan="4">&nbsp;</td>
+	</tr>
+
+</tbody></table>
+
+</div>
+<div class="mochi-template">
+<p><span class="bold2">Expected points:&nbsp;&nbsp;&nbsp;Home: <span mochi:formattedcontent="ExpPt.home" mochi:format="#.##"></span>&nbsp;- Away: <span mochi:formattedcontent="ExpPt.away" mochi:format="#.##"></span></span></p>
+<p><span class="bold2">Expected Goal Difference: <span mochi:formattedcontent="ExpGD" mochi:format="#.##"></span></span></p>
+</div>
+
+
+<!-- the game settings bit -->
+<p><input id="open" value="Adjust Team Ratings" type="submit"></p>
+
+<!-- the window -->
+<div id="myWindow" class="window">
+	<div id="handle">Adjust Team Ratings</div>
+	<div id="main">
+		<ul id="tab_group" class="subsection_tabs">
+				<li class="home"><a class="active" href="#home"><span class="homeTeamName">Select Home Team</span></a></li>
+				<li class="away"><a href="#away"><span class="awayTeamName">Select Away Team</span></a></li>
+		</ul>
+		<div style="" id="home">
+			<div class="tab_page">
+				<div class="key">
+						<div class="key_mark_high"><!-- --></div>Highest Historical<br>
+						<div class="key_mark_low"><!-- --></div>Lowest Historical
+				</div>
+				<p><b>Attack Rating:</b><br>
+					Goals would score against average side</p>
+				<div class="horizontal dynamic-slider-control slider" id="slider-homeAtk" tabindex="2">
+					<div class="minMark" id="homeAtk-minMark" style="display: none;"></div>
+					<div class="maxMark" id="homeAtk-maxMark" style="display: none;"></div>
+					<input class="slider-input" id="slider-input-homeAtk" name="slider-input-homeAtk">
+				<div style="top: 0px; left: 0px; width: 0px;" class="line"><div style="width: 0px;"></div></div><div style="left: 0px; top: 0px;" class="handle"><div>&nbsp;</div></div></div>
+				<br><br>
+
+				<p><b>Defence Rating:</b><br>
+					Goals would concede against average side</p>
+				<div class="horizontal dynamic-slider-control slider" id="slider-homeDef" tabindex="3">
+					<div class="maxMark" id="homeDef-minMark" style="display: none;"></div>
+					<div class="minMark" id="homeDef-maxMark" style="display: none;"></div>
+					<input class="slider-input" id="slider-input-homeDef" name="slider-input-homeDef">
+				<div style="top: 0px; left: 0px; width: 0px;" class="line"><div style="width: 0px;"></div></div><div style="left: 0px; top: 0px;" class="handle"><div>&nbsp;</div></div></div>
+			</div>
+		</div>
+
+		<div style="display: none;" id="away">
+			<div class="tab_page">
+				<div class="key">
+						<div class="key_mark_high"><!-- --></div>Highest Historical<br>
+						<div class="key_mark_low"><!-- --></div>Lowest Historical
+				</div>
+				<p><b>Attack Rating:</b><br>
+					Goals would score against average side</p>
+				<div class="horizontal dynamic-slider-control slider" id="slider-awayAtk" tabindex="2">
+					<div class="minMark" id="awayAtk-minMark" style="display: none;"></div>
+					<div class="maxMark" id="awayAtk-maxMark" style="display: none;"></div>
+					<input class="slider-input" id="slider-input-awayAtk" name="slider-input-awayAtk">
+				<div style="top: 0px; left: 0px; width: 0px;" class="line"><div style="width: 0px;"></div></div><div style="left: 0px; top: 0px;" class="handle"><div>&nbsp;</div></div></div>
+				<br><br><br>
+
+				<p><b>Defence Rating:</b><br>
+					Goals would concede against average side</p>
+				<div class="horizontal dynamic-slider-control slider" id="slider-awayDef" tabindex="3">
+					<div class="maxMark" id="awayDef-minMark" style="display: none;"></div>
+					<div class="minMark" id="awayDef-maxMark" style="display: none;"></div>
+					<input class="slider-input" id="slider-input-awayDef" name="slider-input-awayDef">
+				<div style="top: 0px; left: 0px; width: 0px;" class="line"><div style="width: 0px;"></div></div><div style="left: 0px; top: 0px;" class="handle"><div>&nbsp;</div></div></div>
+			</div>
+		</div>
+		<script>
+			cntl = new Control.Tabs('tab_group', {
+				afterChange: ReCalcSliders
+			});
+		</script>
+		<p style="text-align:left;">
+			<input id="default" value="Default" type="submit">&nbsp;
+			<input id="update" value="Update" type="submit">&nbsp;
+			<input id="done" value="Done" type="submit">
+		</p>
+	</div>
+</div>   	<!-- end #mainContent -->		</div>	<!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats -->	<div class="clearfloat"></div>             <div id="footer">     </div>       <div class="clearfloat"></div><!-- end #container --></div> <div id="bottomline"></div><script type="text/javascript" src="TIMES%20ONLINE%20-%20The%20Fink%20Tank%20Predictor_files/ga.js"></script><script type="text/javascript">var pageTracker = _gat._getTracker("UA-3975734-1");pageTracker._initData();pageTracker._trackPageview();</script></body></html>

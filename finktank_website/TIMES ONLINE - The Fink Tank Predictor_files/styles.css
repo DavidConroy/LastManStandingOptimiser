@@ -1,0 +1,262 @@
+@charset "UTF-8";
+body  {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #fff;
+	margin: 0px auto; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: left; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000;
+	font-size:12px;
+	width:852px;
+	
+	/*default font*/
+	
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333333;
+	
+}
+
+h1 {font-size:23px;color:#fff108; font-weight:bold; font-family:Arial, Helvetica, sans-serif; letter-spacing:1px;}
+.h2 {font-size:16px;color:#ffffff; font-weight:bold; font-family:Arial, Helvetica, sans-serif; letter-spacing:1px;}
+
+.twoColHybLtHdr #container { 
+	width: 852px;  /* this will create a container 80% of the browser width */
+	background-color:#003271;
+	background-image:url(../images/back-repeat.jpg); background-repeat:repeat-x;
+
+	margin: 0px;
+	padding:0px;
+	 /* the auto margins (in conjunction with a width) center the page */
+	/*border: 1px solid #000000;*/
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	border-top:5px solid #b7d333;
+	border-bottom:5px solid #b7d333;
+} 
+.twoColHybLtHdr #header {
+	background-color:#fff;
+	padding:0px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	margin:0px;
+	
+} 
+.twoColHybLtHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding:0px; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+	
+	
+}
+.twoColHybLtHdr #header a{
+	
+	padding:0px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	margin:0px;
+	
+}
+
+/* Tips for sidebar1:
+1. Since we are working in relative units, it's best not to use padding on the sidebar. It will be added to the overall width for standards compliant browsers creating an unknown actual width. 
+2. Since em units are used for the sidebar value, be aware that its width will vary with different default text sizes.
+3. Space between the side of the div and the elements within it can be created by placing a left and right margin on those elements as seen in the ".twoColHybLtHdr #sidebar1 p" rule.
+*/
+.twoColHybLtHdr #sidebar1 {
+	float: left; 
+	width: 178px; /* since this element is floated, a width must be given */
+	
+	padding: 0px 0 0 0px; /* top and bottom padding create visual space within this div  */
+	margin:24px 22px 0 22px;
+	font-size:12px;
+
+}
+.twoColHybLtHdr #sidebar1 h3, .twoColHybLtHdr #sidebar1 p {
+	margin-left: 0px; /* the left and right margin should be given to every element that will be placed in the side columns */
+	margin-right: 10px;
+}
+
+.twoColHybLtHdr .sidebox {/*background-color:#ffffff;*/ margin:0px 0 10px 0; padding:0; width:178px;}
+
+.twoColHybLtHdr .headband {background-image:url(../images/headband.jpg); background-repeat:repeat-x; height:22px;
+							 margin:0px; padding:4px 0px 0px 8px; font-weight:bold; font-size:16px; width:170px; color:#323232;}
+
+.twoColHybLtHdr .headband2 {background-image:url(../images/headband.jpg); background-repeat:repeat-x; height:20px;
+							 margin:0px; padding:0px; font-weight:bold; font-size:16px; width:592px;  color:#323232; text-align:center;letter-spacing:0;}
+							 
+
+.twoColHybLtHdr .help { background-color:#FFFFFF; padding:10px 20px 10px 20px; width:552px;
+						margin-bottom:10px;}	
+.twoColHybLtHdr .help p{ color:#999999; font-size:12px; font-family:Arial, Helvetica, sans-serif; padding:0px; letter-spacing:0; margin:0;}						 
+							 							 
+.twoColHybLtHdr #sidebar1 a, .twoColHybLtHdr #sidebar1 a:visited{
+
+	text-decoration:none;
+	color:#999999;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	display:block;
+	padding:4px 8px 0px 8px;
+	/*border-bottom:1px solid #CCCCCC;*/
+	margin:0px;
+	background-color:#ffffff;
+	
+}
+
+
+
+
+
+.twoColHybLtHdr #sidebar1 a:hover{
+	background-color:#fff108;
+	color:#000000;
+}
+
+.twoColHybLtHdr #sidebar1 .border { border-bottom:1px solid #999999; display:block; padding-bottom:4px; margin:0; }
+.twoColHybLtHdr #sidebar1 .border2 {  display:block; padding-bottom:5px; margin:0;}
+.twoColHybLtHdr #sidebar1 .list{
+	margin:0; 
+	padding:0;
+	border:2px solid #cccccc;
+	position:relative;
+	top:0;
+	left:0;
+	
+}
+
+
+
+			
+.twoColHybLtHdr #sidebar1 #help {background-color:#FFFFFF; border:2px solid #000000;}
+.twoColHybLtHdr #sidebar1 #help b{ font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; color:#000000; border-bottom:1px solid 
+#000000; padding:4px 2px 2px 2px; margin: 0 8px 0 8px; display:block;}
+.twoColHybLtHdr #sidebar1 #help a{ color:#278ed8; font-weight:bold; font-size:14px; display:block; padding:6px 0 6px 8px;}
+.twoColHybLtHdr #sidebar1 #help a:hover{ color:#279ed8; font-weight:bold; background-color:#FFFFFF; text-decoration:underline;}
+
+/* Tips for mainContent:
+1. The space between the mainContent and sidebar1 is created with the left margin on the mainContent div.  No matter how much content the sidebar1 div contains, the column space will remain. You can remove this left margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends.
+2. Be aware it is possible to cause float drop (the dropping of the non-floated mainContent area below the sidebar) if an element wider than it can contain is placed within the mainContent div. WIth a hybrid layout (percentage-based overall width with em-based sidebar), it may not be possible to calculate the exact width available. If the user's text size is larger than average, you will have a wider sidebar div and thus, less room in the mainContent div. You should be aware of this limitation - especially if the client is adding content with Contribute.
+3. In the Internet Explorer Conditional Comment below, the zoom property is used to give the mainContent "hasLayout." This may help avoid several IE-specific bugs.
+*/
+.twoColHybLtHdr #mainContent { 
+	margin: 0 20px 0 220px; /* the right margin can be given in percentages or pixels. It creates the space down the right side of the page. */
+	
+	text-align:left;
+	
+	padding:0 10px;
+}
+.twoColHybLtHdr #mainContent p{
+
+margin:0;
+padding:3px 0; 
+font-family:Arial, Helvetica, sans-serif;
+/*font-size:11px;*/
+letter-spacing:1px;
+
+}
+.twoColHybLtHdr #mainContent h2{
+font-size:15px;
+font-weight:normal;
+margin:0;
+padding:3px 0; 
+
+}
+
+.twoColHybLtHdr #mainContent .yellow {
+
+color:#fff108;
+
+}
+
+.twoColHybLtHdr #mainContent a { 
+	margin: 0;
+	
+	padding:0px;
+}
+
+
+/* Miscellaneous classes for reuse */
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+
+
+
+
+#tabletop { width:592px; background-color:#ccccca; height:21px; color:#000000; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:12px;}
+
+#tabletop .cell1 {background-image:url(../images/table_head.jpg); background-repeat:repeat-x; height:19px; width:60px; border-right:1px solid #CCCCCA;
+							 float:left; text-align:center; padding-top:3px;}
+#tabletop .cell2 {background-image:url(../images/table_head.jpg); background-repeat:repeat-x; height:19px; width:125px; border-right:1px solid #CCCCCA;
+							border-left:1px solid #CCCCCC; float:left; text-align:center;padding-top:3px;}
+#tabletop .cell3 {background-image:url(../images/table_head.jpg); background-repeat:repeat-x; height:19px; width:125px; border-right:1px solid #CCCCCA;
+							border-left:1px solid #CCCCCC; float:left; text-align:center;padding-top:3px;}
+#tabletop .cell4 {background-image:url(../images/table_head.jpg); background-repeat:repeat-x; height:19px; width:70px; border-right:1px solid #CCCCCA;
+							border-left:1px solid #CCCCCC; float:left; text-align:center;padding-top:3px;}
+#tabletop .cell5 {background-image:url(../images/table_head.jpg); background-repeat:repeat-x; height:19px; width:70px; border-right:1px solid #CCCCCA;
+							border-left:1px solid #CCCCCC; float:left; text-align:center;padding-top:3px;}
+#tabletop .cell6 {background-image:url(../images/table_head.jpg); background-repeat:repeat-x; height:19px; width:70px; border-right:1px solid #CCCCCA; 
+							border-left:1px solid #CCCCCC; float:left; text-align:center;padding-top:3px;}
+#tabletop .cell7 {background-image:url(../images/table_head.jpg); background-repeat:repeat-x; height:19px; width:60px; 
+							border-left:1px solid #CCCCCC; float:left; text-align:center;padding-top:3px;}
+
+#tableall {border:1px solid #CCCCCC; border-bottom:2px solid #CCCCCC; width:590px; margin:0; padding:0; }
+
+.scroll {height: 300px;	 width:607px; overflow:auto;}
+
+#tablebottom {height:25px;width:590px; font-family:Arial, Helvetica, sans-serif; font-size:11px;}
+#tablebottom a {text-decoration:none;font-weight:normal; font-size:11px; display:block; background-color:#FFFFFF; width:590px; height:25px; color:#666666;}
+
+#tablebottom a:hover  {background-color:#fff108; color:#000000;}
+
+							
+/*
+	#tablebottom a .cell1, a .cell2, a .cell3, a .cell4, a .cell5, a .cell6, a .cell7 {background-color:#FFFFFF; color:#000000;text-decoration:none;font-weight:normal; font-size:11px;}
+	#tablebottom a:visited .cell1, a:visited .cell2, a:visited .cell3, a:visited .cell4, a:visited .cell5, a:visited .cell6, a:visited .cell7 
+	{background-color:#FFFFFF; color:#000000; text-decoration:none;}
+
+	#tablebottom a:hover  .cell1,a:hover .cell2,a:hover .cell3,a:hover .cell4,a:hover .cell5,a:hover .cell6, a:hover .cell7 {background-color:#f1f30a; color:#000000;}
+*/
+
+#tablebottom p {margin:0; padding:0;}
+
+#tablebottom li {list-style:none; display:inline;}
+
+#tablebottom .cell1 {height:20px; width:54px; border:1px solid #CCCCCA; border-bottom:none;
+							padding-top:4px; padding-left:4px; float:left;}
+#tablebottom .cell2 {height:20px; width:119px; border:1px solid #CCCCCA;border-bottom:none;
+							padding-top:4px;padding-left:6px; float:left;}
+#tablebottom .cell3 {height:20px; width:119px; border:1px solid #CCCCCA;border-bottom:none;
+							padding-top:4px;padding-left:6px; float:left;}
+#tablebottom .cell4 {height:20px; width:70px; border:1px solid #CCCCCA;border-bottom:none;
+							 text-align:center;padding-top:4px; float:left;}
+#tablebottom .cell5 {height:20px; width:70px; border:1px solid #CCCCCA;border-bottom:none;
+							 text-align:center;padding-top:4px; float:left;}
+#tablebottom .cell6 {height:20px; width:70px; border:1px solid #CCCCCA;border-bottom:none;
+							 text-align:center;padding-top:4px; float:left;}
+#tablebottom .cell7 {height:20px; width:58px; border:1px solid #CCCCCA; border-bottom:none;
+							 text-align:center;padding-top:4px; float:left;}
+
+
+
+
+img {border-style:none;}
+
+#footer { margin:0px 22px 20px 22px; padding:0;}
+
+.twoColHybLtHdr #sidebar1 .list ul.submenu { list-style:none; background-color:#fff108; position: absolute; top: -100px; left: 174px; margin:0; padding:8px 10px 8px 16px; display:none;}
+
+.twoColHybLtHdr #sidebar1 .list ul.submenu a {background-color:#fff108; font-size:11px; padding:2px; margin:0; }
+
+.twoColHybLtHdr #sidebar1 .list ul.submenu li {padding:0px 0; margin:0; background-color:#fff108; width:100px;}
+
+
+

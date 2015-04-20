@@ -1,0 +1,149 @@
+
+
+#main {
+	padding:10px 10px 10px 10px;
+}
+
+
+
+
+#main p,
+#main li,
+#main div.comment {
+	font-family:Verdana;
+	color:#333;
+	font-size:11px;
+	line-height:18px;
+}
+
+#main a {
+	text-decoration:none;
+	font-weight:bold;
+	color:#2777a1;
+}
+
+#main a:hover {
+	color:#1b9de2;
+}
+
+
+/* Subsection Tabs
+--------------------*/
+#main ul.subsection_tabs {
+	list-style:none;
+	margin:0;
+	padding:0;
+	clear:both;
+	height:20px;
+	clear:both;
+position: relative;
+z-index: 3;
+}
+
+#main ul.subsection_tabs li {
+	float:left;
+	margin-right:7px;
+	text-align:center;
+}
+
+#main ul.subsection_tabs li a {
+	display:block;
+	height:20px;
+	padding:0 6px 0 6px;
+	background-color:#ddd;
+	color:#666;
+	width:100px;
+}
+
+#main ul.subsection_tabs li.away a {
+	border-bottom: solid 1px #fff108;
+}
+
+#main ul.subsection_tabs li.home a {
+	border-bottom: solid 1px #00f;
+}
+
+html>body #main ul.subsection_tabs li.away a,
+html>body #main ul.subsection_tabs li.home a {
+	border-bottom: solid 1px #ddd;
+}
+
+#main ul.subsection_tabs li a:hover {
+	color:#666;
+}
+
+#main ul.subsection_tabs li.home a.active {
+	border: solid 1px #fff108;
+	border-bottom: none 1px #fff;
+}
+
+#main ul.subsection_tabs li.away a.active {
+	border: solid 1px #00f;
+	border-bottom: none 1px #fff;
+}
+
+html>body #main ul.subsection_tabs li.home a.active,
+html>body #main ul.subsection_tabs li.away a.active {
+	border-bottom: solid 1px #fff;
+}
+
+#main ul.subsection_tabs li a.active {
+	background-color:#fff;
+}
+
+#main ul.register_tabs {
+	border-bottom:none;
+}
+
+#main ul.register_tabs li a.active {
+	background-color:#6d7a81;
+	color:#fff;
+}
+
+.tab_page {
+	background-color: #fff;
+	position:relative;
+	z-index:2;
+	top: -1px;
+	padding: 8px;
+	height: 160px;
+	margin: 0px;
+	margin-bottom: 20px;
+}
+
+html>body .tab_page {
+	top: 1px;
+}
+
+#home .tab_page {
+	border: #fff108 1px solid;
+}
+
+#away .tab_page {
+	border: #00f 1px solid;
+}
+
+.key {
+	float: right; 
+	font-family:Verdana;
+	color:#333;
+	font-size:11px;
+	padding-right:4px;
+}
+
+.key_mark_high, .key_mark_low {
+	position:relative; 
+	top: 5px;
+	width: 5px; 
+	height: 5px; 
+	float:left;
+	margin-right:5px;
+}
+
+.key_mark_high {
+	background-color: #00f; 
+}
+
+.key_mark_low {
+	background-color: #f00; 
+}
